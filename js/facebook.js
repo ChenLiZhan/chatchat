@@ -18,14 +18,16 @@ window.fbAsyncInit = function() {
     //
     // These three cases are handled in the callback function.
     $('#login').click(function() {
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-                console.log('Logged in.');
-            } else {
-                FB.login();
+        FB.api(
+            "/me",
+            function(response) {
+                if (response && !response.error) {
+                    console.log(response);
+                }
             }
-        });
+        );
     });
+
 };
 
 // Load the SDK asynchronously
