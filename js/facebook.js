@@ -20,9 +20,6 @@ window.fbAsyncInit = function() {
     $('#about').click(function() {
         FB.api("/me", {
             last_name: 'last_name',
-            location: 'location',
-            gender: 'gender',
-            birthday: 'birthday'
         }, function(response) {
             console.log(response);
         });
