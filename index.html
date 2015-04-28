@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ChatChat</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    </head>
+    <body>
+
+        
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">ChatChat</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="jumbotron">
+          <h1 class="text-center">Join ChatChat!</h1>
+          <p class="text-center">Facebook</p>
+          <div class="fb-login-button pull-right" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+        </div>
+
+        <div class="container">
+            <div id="message-pool" class="row"></div>
+            <div class="row">
+                <form action="" method="POST">
+                    <textarea id="message-input" class="col-md-12"></textarea>
+                    <br />
+                    <div class="col-md-6">
+                        <button type="submit" id="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="refresh" class="btn btn-primary btn-lg pull-right">Refresh</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/facebook.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script>
+            Parse.initialize("703L8NffhlLbhUvavrv5m6LEt0NTIbn3rxsxcGLL", "fa1b3gt673871ronyPzlbg0hQH0zT6FtvUzJy0pq");
+        </script>
+        <script type="text/javascript" src="js/message.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
