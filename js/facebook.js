@@ -19,10 +19,10 @@ window.fbAsyncInit = function() {
     // These three cases are handled in the callback function.
     $('#about').click(function() {
         FB.api("/me", {
-            fields: 'last_name',
-            fields: 'location',
-            fields: 'gender',
-            fields: 'birthday'
+            last_name: 'last_name',
+            location: 'location',
+            gender: 'gender',
+            birthday: 'birthday'
         }, function(response) {
             console.log(response);
         });
