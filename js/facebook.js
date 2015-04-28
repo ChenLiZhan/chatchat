@@ -18,7 +18,12 @@ window.fbAsyncInit = function() {
     //
     // These three cases are handled in the callback function.
     $('#about').click(function() {
-        FB.api("/me", function(response) {
+        FB.api("/me", {
+            fields: 'last_name',
+            fields: 'location',
+            fields: 'gender',
+            fields: 'birthday'
+        }, function(response) {
             console.log(response);
         });
     });
