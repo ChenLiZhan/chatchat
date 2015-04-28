@@ -19,9 +19,7 @@ window.fbAsyncInit = function() {
     // These three cases are handled in the callback function.
     $('#about').click(function() {
         FB.api("/me", function(response) {
-            if (response && !response.error) {
-                console.log(response);
-            }
+            console.log(response);
         });
     });
 
