@@ -25,25 +25,10 @@ refresh.addEventListener('click', function(e) {
     getAllMessages();
 });
 
-$('#about').click(function() {
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            FB.api("/me", function(response) {
-                if (response && !response.error) {
-                    console.log(response);
-                }
-            });
-        } else {
-            $('#alert').show();
-        }
-    });
-});
-
 $('#login').click(function() {
     FB.login(function(response) {
         if (response.authResponse) {
             $('#alert').hide();
-            console.log(response.authResponse);
             FB.api('/me', function(response) {
                 setCookie('username', response.name, 1);
             });
