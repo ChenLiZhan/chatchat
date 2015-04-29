@@ -7,39 +7,10 @@ window.fbAsyncInit = function() {
         version: 'v2.3'
     });
 
-    $('#about').click(function() {
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-                FB.api("/me", function(response) {
-                    if (response && !response.error) {
-                        console.log(response);
-                    }
-                });
-            } else {
-                $('#alert').show();
-            }
-        });
-    });
-
-    $('#login').click(function() {
-        FB.login(function(response) {
-            if (response.authResponse) {
-                $('#alert').hide();
-                FB.api('/me', function(response) {
-                    setCookie('username', response.name, 1);
-                });
-            } else {
-                console.log('User cancelled login or did not fully authorize.');
-            }
-        });
-    });
-
-    $('#logout').click(function() {
-        FB.logout(function(response) {});
-    });
 
 
     FB.Event.subscribe('auth.statusChange', function(response) {
+        console.log(reponse.status);
         if (response.status === 'connected') {
             $('#logout').show();
             $('#login').hide();
