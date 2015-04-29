@@ -3,6 +3,10 @@ var pool = document.getElementById('message-pool');
 var submit = document.getElementById('submit');
 var refresh = document.getElementById('refresh');
 
+$('#logout').hide();
+$('#login').show();
+$('#alert').hide();
+
 getAllMessages();
 
 submit.addEventListener('click', function(e) {
@@ -10,6 +14,7 @@ submit.addEventListener('click', function(e) {
     FB.getLoginStatus(function(response) {
         if (response.status !== 'connected') {
             $('#alert').show();
+            return;
         }
     });
     var sender = getCookie('username');

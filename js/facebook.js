@@ -6,9 +6,6 @@ window.fbAsyncInit = function() {
         // status: true,
         version: 'v2.3'
     });
-    $('#logout').hide();
-    $('#login').show();
-    $('#alert').hide();
 
     $('#about').click(function() {
         FB.getLoginStatus(function(response) {
