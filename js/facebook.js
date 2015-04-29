@@ -8,11 +8,18 @@ window.fbAsyncInit = function() {
     });
     $('#logout').hide();
     $('#login').show();
+    $('#alert').hide();
 
     $('#about').click(function() {
-        FB.api("/me", function(response) {
-            if (response && !response.error) {
-                console.log(response);
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                FB.api("/me", function(response) {
+                    if (response && !response.error) {
+                        console.log(response);
+                    }
+                });
+            } else {
+                $('#alert').show();
             }
         });
     });
@@ -20,6 +27,7 @@ window.fbAsyncInit = function() {
     $('#login').click(function() {
         FB.login(function(response) {
             if (response.authResponse) {
+                $('#alert').hide();
                 FB.api('/me', function(response) {
                     setCookie('username', response.name, 1);
                 });

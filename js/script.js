@@ -7,6 +7,11 @@ getAllMessages();
 
 submit.addEventListener('click', function(e) {
     e.preventDefault();
+    FB.getLoginStatus(function(response) {
+        if (response.status !== 'connected') {
+            $('#alert').show();
+        }
+    });
     var sender = getCookie('username');
     saveMessage(sender, message.value);
     pool.innerHTML += "<div class=\"col-md-8\">" + sender + ': ' + message.value + "</div><div class=\"col-md-4 time-display\">" + time_diff(Date.now(), Date.now()) + "分鐘前</div>";
