@@ -3,6 +3,7 @@ window.fbAsyncInit = function() {
         appId: '343619175837730',
         cookie: true, // enable cookies to allow the server to access 
         xfbml: true, // parse social plugins on this page
+        status: true,
         version: 'v2.3' // use version 2.2
     });
 
