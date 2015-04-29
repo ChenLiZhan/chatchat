@@ -17,6 +17,28 @@ window.fbAsyncInit = function() {
     //    your app or not.
     //
     // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            // the user is logged in and has authenticated your
+            // app, and response.authResponse supplies
+            // the user's ID, a valid access token, a signed
+            // request, and the time the access token 
+            // and signed request each expire
+            $('#login').hide();
+            $('#logout').show();
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+        } else if (response.status === 'not_authorized') {
+            // the user is logged in to Facebook, 
+            // but has not authenticated your app
+        } else {
+            $('#login').show();
+            $('#logout').hide();
+            // the user isn't logged in to Facebook.
+        }
+    });
+
     $('#about').click(function() {
         FB.api("/me", function(response) {
             if (response && !response.error) {
@@ -32,7 +54,6 @@ window.fbAsyncInit = function() {
                 console.log('Welcome!  Fetching your information.... ');
                 FB.api('/me', function(response) {
                     console.log('Good to see you, ' + response.name + '.');
-                    alert(FB.getLoginStatus());
                 });
 
             } else {
