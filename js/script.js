@@ -3,9 +3,8 @@ var pool = document.getElementById('message-pool');
 var submit = document.getElementById('submit');
 var refresh = document.getElementById('refresh');
 
-$('#logout').hide();
-$('#login').show();
 $('#alert').hide();
+$('#logout').hide();
 
 getAllMessages();
 
@@ -47,9 +46,10 @@ $('#login').click(function() {
     FB.login(function(response) {
         if (response.authResponse) {
             $('#alert').hide();
-            FB.api('/me', function(response) {
-                setCookie('username', response.name, 1);
-            });
+            console.log(response.authResponse);
+            // FB.api('/me', function(response) {
+            //     setCookie('username', response.name, 1);
+            // });
         } else {
             console.log('User cancelled login or did not fully authorize.');
         }
