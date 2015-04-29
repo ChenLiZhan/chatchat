@@ -21,7 +21,7 @@ window.fbAsyncInit = function() {
         FB.login(function(response) {
             if (response.authResponse) {
                 FB.api('/me', function(response) {
-                    document.cookie = "username=" + response.name;
+                    setCookie('username', response.name, 1);
                 });
             } else {
                 console.log('User cancelled login or did not fully authorize.');
