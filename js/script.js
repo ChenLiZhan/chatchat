@@ -47,9 +47,9 @@ $('#login').click(function() {
         if (response.authResponse) {
             $('#alert').hide();
             console.log(response.authResponse);
-            // FB.api('/me', function(response) {
-            //     setCookie('username', response.name, 1);
-            // });
+            FB.api('/me', function(response) {
+                setCookie('username', response.name, 1);
+            });
         } else {
             console.log('User cancelled login or did not fully authorize.');
         }
