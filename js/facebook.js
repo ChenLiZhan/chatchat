@@ -10,7 +10,7 @@ window.fbAsyncInit = function() {
 
 
     FB.Event.subscribe('auth.statusChange', function(response) {
-        console.log(reponse.status);
+        console.log(response.status);
         if (response.status === 'connected') {
             $('#logout').show();
             $('#login').hide();
