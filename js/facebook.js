@@ -29,6 +29,7 @@ window.fbAsyncInit = function() {
             $('#logout').show();
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
+            console.log(accessToken);
         } else if (response.status === 'not_authorized') {
             // the user is logged in to Facebook, 
             // but has not authenticated your app
@@ -42,7 +43,6 @@ window.fbAsyncInit = function() {
     $('#about').click(function() {
         FB.api("/me", function(response) {
             if (response && !response.error) {
-                /* handle the result */
                 console.log(response);
             }
         });
@@ -63,9 +63,7 @@ window.fbAsyncInit = function() {
     });
 
     $('#logout').click(function() {
-        FB.logout(function(response) {
-            // user is now logged out
-        });
+        FB.logout(function(response) {});
     });
 
 
