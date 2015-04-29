@@ -3,8 +3,6 @@ var pool = document.getElementById('message-pool');
 var submit = document.getElementById('submit');
 var refresh = document.getElementById('refresh');
 
-$('#alert').hide();
-
 getAllMessages();
 
 submit.addEventListener('click', function(e) {
