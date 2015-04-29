@@ -8,6 +8,9 @@ getAllMessages();
 submit.addEventListener('click', function(e) {
     e.preventDefault();
     saveMessage(message.value);
+    FB.api('/me', function(response) {
+        console.log('Good to see you, ' + response.name + '.');
+    });
     pool.innerHTML += "<div class=\"col-md-8\">" + message.value + "</div><div class=\"col-md-4\">" + time_diff(Date.now(), Date.now()) + "分鐘前</div>";
     message.value = "";
 });

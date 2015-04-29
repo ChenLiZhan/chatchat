@@ -5,8 +5,8 @@ var getAllMessages = function() {
     var query = new Parse.Query(messages);
     query.find({
         success: function(results) {
-        // Do something with the returned Parse.Object values
-            for (var i = 0; i < results.length; i++) { 
+            // Do something with the returned Parse.Object values
+            for (var i = 0; i < results.length; i++) {
                 var object = results[i];
                 pool.innerHTML += "<div class=\"col-md-8\">" + object.get("msg") + "</div><div class=\"col-md-4 time-display\">" + time_diff(Date.now(), object.createdAt) + "分鐘前</div>";
             }
@@ -32,5 +32,5 @@ var saveMessage = function(message) {
 };
 
 function time_diff(now, time) {
-    return parseInt(( now - time ) / 60000);
+    return parseInt((now - time) / 60000);
 }
