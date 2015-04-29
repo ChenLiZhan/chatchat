@@ -1,6 +1,8 @@
+Parse.initialize("703L8NffhlLbhUvavrv5m6LEt0NTIbn3rxsxcGLL", "fa1b3gt673871ronyPzlbg0hQH0zT6FtvUzJy0pq");
+
 var pool = document.getElementById('message-pool');
 
-var getAllMessages = function() {
+function getAllMessages() {
     var messages = Parse.Object.extend("messages");
     var query = new Parse.Query(messages);
     query.find({
@@ -14,9 +16,9 @@ var getAllMessages = function() {
             console.log("Error: " + error.code + " " + error.message);
         }
     });
-};
+}
 
-var saveMessage = function(sender, message) {
+function saveMessage(sender, message) {
     var messages = Parse.Object.extend("messages");
     var messages = new messages();
     messages.set("msg", message);
@@ -29,7 +31,7 @@ var saveMessage = function(sender, message) {
             console.log('Failed to create new object, with error code: ' + error.message);
         }
     });
-};
+}
 
 function time_diff(now, time) {
     return parseInt((now - time) / 60000);
