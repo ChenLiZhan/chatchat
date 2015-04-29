@@ -17,15 +17,14 @@ window.fbAsyncInit = function() {
     //    your app or not.
     //
     // These three cases are handled in the callback function.
-    var my_profile;
-    FB.api("/me", function(response) {
-        if (response && !response.error) {
-            /* handle the result */
-            my_profile = response;
-        }
-    });
+    console.log(FB.getLoginStatus());
     $('#about').click(function() {
-        console.log(my_profile);
+        FB.api("/me", function(response) {
+            if (response && !response.error) {
+                /* handle the result */
+                console.log(response);
+            }
+        });
     });
 
 };
