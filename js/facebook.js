@@ -6,6 +6,8 @@ window.fbAsyncInit = function() {
         // status: true,
         version: 'v2.3'
     });
+    $('#logout').hide();
+    $('#login').show();
 
     $('#about').click(function() {
         FB.api("/me", function(response) {
