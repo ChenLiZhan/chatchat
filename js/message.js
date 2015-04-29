@@ -8,7 +8,7 @@ var getAllMessages = function() {
             // Do something with the returned Parse.Object values
             for (var i = 0; i < results.length; i++) {
                 var object = results[i];
-                pool.innerHTML += "<div class=\"col-md-8\">" + object.get("msg") + "</div><div class=\"col-md-4 time-display\">" + time_diff(Date.now(), object.createdAt) + "分鐘前</div>";
+                pool.innerHTML += "<div class=\"col-md-8\">" + object.get("username") + ': ' + object.get("msg") + "</div><div class=\"col-md-4 time-display\">" + time_diff(Date.now(), object.createdAt) + "分鐘前</div>";
             }
         },
         error: function(error) {
@@ -17,10 +17,11 @@ var getAllMessages = function() {
     });
 };
 
-var saveMessage = function(message) {
+var saveMessage = function(sender, message) {
     var messages = Parse.Object.extend("messages");
     var messages = new messages();
     messages.set("msg", message);
+    messages.set("username", sender);
     messages.save(null, {
         success: function(messages) {
             console.log('New object created with objectId: ' + messages.id);
