@@ -24,10 +24,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="#" id="about">About</a></li>
-                <li><a href="#">Link</a></li>
-              </ul>
+              
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
@@ -45,8 +42,14 @@
                 Logout
               </div>
             </div>
+
             <div class="alert alert-danger" role="alert" id="alert">Please Login the Facebook and Start to chat on ChatChat</div>
-            <div id="message-pool" class="row"></div>
+
+            <div id="message-pool" class="panel panel-info row">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ChatChat Messages</h3>
+                </div>
+            </div>
             <div class="row">
                 <form action="" method="POST">
                     <textarea id="message-input" class="col-md-12"></textarea>
