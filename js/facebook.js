@@ -7,10 +7,18 @@ window.fbAsyncInit = function() {
         version: 'v2.3'
     });
 
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            $('#logout').show();
+            $('#login').hide();
+        } else {
+            $('#logout').hide();
+            $('#login').show();
+        }
+    });
 
 
     FB.Event.subscribe('auth.statusChange', function(response) {
-        console.log(response.status);
         if (response.status === 'connected') {
             $('#logout').show();
             $('#login').hide();

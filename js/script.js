@@ -4,7 +4,6 @@ var submit = document.getElementById('submit');
 var refresh = document.getElementById('refresh');
 
 $('#alert').hide();
-$('#logout').hide();
 
 getAllMessages();
 
